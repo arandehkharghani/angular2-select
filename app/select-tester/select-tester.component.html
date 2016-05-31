@@ -1,0 +1,9 @@
+<div>
+    <div class='col-md-12'>items: {{_items|json}}</div>
+    <div class='col-md-12'>selected Values: {{_selectedValues|json}}</div>
+</div>
+
+
+<my-select [(selectedValues)] = '_selectedValues'>
+    <my-option *ngFor="let item of _items" [value]="item.value" [displayText]='item.text'></my-option>
+</my-select>

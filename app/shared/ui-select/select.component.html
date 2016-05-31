@@ -1,0 +1,9 @@
+    <div class='select-search'>
+        <ul class='box'>            
+            <li class='choice' *ngFor='let option of options | filterByEqual:"selected":true ' >{{option.displayText}}<span class='glyphicon glyphicon-remove' (click)='onRemoveClicked(option)'></span>
+            <li class='search'><input #searchText myClickTracker (clickTracked)='onClickTrackedForInput($event)' type='text' placeholder='select some options'  (keyup)='onSearchTextChanged(searchText.value)' [(ngModel)]='_searchText'/>
+        </ul>        
+        <ul class='list' [hidden]='_isDropHidden'>
+            <ng-content></ng-content>                
+        </ul>
+    </div>
