@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ChangeDe
     styleUrls: ['app/shared/ui-select/option.component.css'],    
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OptionComponent implements OnInit, AfterViewInit {
+export class OptionComponent {
     @Input() value: any;
     @Input() displayText: string;    
     @Output() selectedOption = new EventEmitter();
@@ -27,20 +27,11 @@ export class OptionComponent implements OnInit, AfterViewInit {
     public get isHidden() { return this._isHidden }
 
     private _selected: boolean = false;
-    @Input() _isHidden:boolean = true;
+    private _isHidden:boolean = true;
     
     constructor(private _cdr: ChangeDetectorRef) {
     }
-
-    public ngAfterViewInit() {
-    }
-
-    public ngOnInit() {
-    }
-
-    public doCheck(){
-        
-    }
+    
     private onItemSelected() {
         if (this.selected) {
             // the item is selected so do nothing
